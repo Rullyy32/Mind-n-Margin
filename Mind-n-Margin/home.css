@@ -1,0 +1,108 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+    }
+
+@font-face {
+    font-family: EtnaSansSerif;
+    src: url('../Font/etna_sans_serif.otf') format('opentype');
+}
+
+@font-face {
+    font-family: Aileron;
+    src: url('../Font/Aileron-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: Gagalin;
+    src: url('../Font/Gagalin-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: InterMilan;
+    src: url('../Font/Inter_Bold.ttf') format('opentype');
+}
+
+body {
+    background-color: #e9eff5;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 9px 20px;
+    box-shadow: 0 2px 3px rgba(27, 23, 23, 0.269);
+}
+
+.logo {
+    font-family: Gagalin, Arial;
+    font-size: 35px;
+    color: #333538;
+} 
+
+.nav-links {
+    font-family: EtnaSansSerif, Arial;
+    font-size: 22.5px;
+    margin-bottom: 9px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #788393;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #3c5efc;
+}
+
+a:active {
+    color: #3c5efc;
+}
+
+section {
+    padding: 20px;
+}
+
+.welcome {
+    font-family: InterMilan, Arial;
+    font-size: 30px;
+    color: #000000;
+    margin-bottom: 15px;
+}
+
+.tanggal {
+    font-family: Aileron, Arial;
+    font-size: 20px;
+    color: #64748b;
+    margin-bottom: 15px;
+}
+
+.quote {
+    font-family: Aileron, Arial;
+    font-size: 18px;
+    color: #000000;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 10px;
+    }
+}
