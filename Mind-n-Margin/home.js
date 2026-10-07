@@ -1,9 +1,6 @@
-/* ===== Mind 'n Margin — halaman Home ===== */
-
 const STORAGE_KEY = 'mindnmargin-home-v1';
 const MAX_TRANSAKSI_TAMPIL = 5;
 
-/* ---------- Kata-kata motivasi (1 hari 1 kata, gonta-ganti otomatis) ---------- */
 const QUOTES = [
     'Everything in this world requires a process, including you',
     'Small steps every day still move you forward',
@@ -23,14 +20,12 @@ const QUOTES = [
 ];
 
 function quoteHariIni(tanggal) {
-    // Hitung nomor hari (bukan jam) supaya ganti tepat saat tengah malam waktu lokal
     const nomorHari = Math.floor(
         Date.UTC(tanggal.getFullYear(), tanggal.getMonth(), tanggal.getDate()) / 86400000
     );
     return QUOTES[nomorHari % QUOTES.length];
 }
 
-/* ---------- Helper ---------- */
 function kunciTanggal(tanggal) {
     const y = tanggal.getFullYear();
     const m = String(tanggal.getMonth() + 1).padStart(2, '0');
@@ -42,7 +37,6 @@ function rupiah(angka) {
     return 'Rp' + Math.abs(angka).toLocaleString('id-ID');
 }
 
-/* ---------- Data (tersimpan di localStorage supaya tidak hilang saat refresh) ---------- */
 function dataAwal() {
     const hariIni = kunciTanggal(new Date());
     return {
@@ -53,7 +47,7 @@ function dataAwal() {
             { text: 'Menyelesaikan laprak', done: true },
             { text: 'Rapikan catatan kuliah', done: false }
         ],
-        // Urutan: yang paling baru di atas
+
         transactions: [
             { name: 'Air mineral', amount: 6000, tgl: hariIni },
             { name: 'Parkir', amount: 2000, tgl: hariIni },
@@ -84,9 +78,7 @@ function simpanData() {
 
 const state = muatData();
 
-/* ---------- Header: tanggal, quote, highlight chart ---------- */
-const sekarang = new Date();
-
+const sekarang = new Date();    
 document.getElementById('tanggal').textContent =
     sekarang.toLocaleDateString('id-ID', {
         weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'
@@ -94,14 +86,12 @@ document.getElementById('tanggal').textContent =
 
 document.getElementById('quote').textContent = quoteHariIni(sekarang);
 
-// Senin = index 0 ... Minggu = index 6
 const indexHariIni = (sekarang.getDay() + 6) % 7;
 document.querySelectorAll('#chart-bars .bar-item').forEach((item, i) => {
     if (i === indexHariIni) item.classList.add('today');
     if (i > indexHariIni) item.classList.add('future');
 });
 
-/* ---------- Render: To-Do ---------- */
 const todoList = document.getElementById('todo-list');
 const tugasCount = document.getElementById('tugas-count');
 
@@ -145,7 +135,6 @@ function renderRingkasanTugas() {
     tugasCount.textContent = selesai + '/' + state.tasks.length + ' Selesai';
 }
 
-/* ---------- Render: Transaksi + ringkasan keuangan ---------- */
 const transactionList = document.getElementById('transaction-list');
 
 function renderTransaksi() {
@@ -202,7 +191,6 @@ function renderRingkasanKeuangan() {
     }
 }
 
-/* ---------- Pop up (dialog) ---------- */
 function pasangDialog(idDialog, idTombolBuka, idForm, saatSubmit) {
     const dialog = document.getElementById(idDialog);
     const form = document.getElementById(idForm);
@@ -217,7 +205,6 @@ function pasangDialog(idDialog, idTombolBuka, idForm, saatSubmit) {
         tombol.addEventListener('click', () => dialog.close());
     });
 
-    // Klik area gelap di luar kotak = tutup
     dialog.addEventListener('click', (e) => {
         if (e.target === dialog) dialog.close();
     });
@@ -250,6 +237,5 @@ pasangDialog('dialog-transaksi', 'btn-catat-transaksi', 'form-transaksi', (field
     renderTransaksi();
 });
 
-/* ---------- Jalankan ---------- */
 renderTugas();
 renderTransaksi();
