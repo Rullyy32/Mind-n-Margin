@@ -1,25 +1,191 @@
 <!DOCTYPE html>
 <html lang="id">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <title>Mind 'n Margin</title>
-        <link rel="stylesheet" href="home.css">
-    </head>
-    <body>
-        <nav class="navbar">
-            <div class="logo">MIND 'N MARGIN</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind 'n Margin</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container-wide navbar-inner">
+            <div class="logo"><a href="home.html">MIND 'N MARGIN</a></div>
 
-            <ul class="nav-links">
-                <li><a href="home.html">BERANDA</a></li>
-                <li><a href="todolist.html">TO-DO-LIST</a></li>
-                <li><a href="keuangan.html">KEUANGAN</a></li>
-            </ul> 
-        </nav>
-        <section class="content">
-            <h1 class="welcome">Selamat Datang, Rully!</h1>
-            <h3 class="tanggal">Jum'at, 4 September 2026</h3>
-            <h3 class="quote">Everything in this world requires a process, including you</h3>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="home.html" class="active" aria-current="page">BERANDA</a></li>
+                    <li><a href="todolist.html">TO-DO LIST</a></li>
+                    <li><a href="keuangan.html">KEUANGAN</a></li>
+                    <li><a href="tentang.html">TENTANG</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="pertama">
+            <div class="container-wide hero">
+                <div class="content">
+                    <h1 class="welcome">Selamat Datang, Rully!</h1>
+                    <p class="tanggal" id="tanggal">Minggu, 4 Oktober 2026</p>
+                    <p class="quote" id="quote"></p>
+                </div>
+
+                <div class="chart-card">
+                    <p class="chart-title">Skor produktivitas minggu ini <span>(%)</span></p>
+                    <div class="chart-wrapper">
+                        <div class="y-axis">
+                            <span>100</span>
+                            <span>80</span>
+                            <span>60</span>
+                            <span>40</span>
+                            <span>20</span>
+                            <span>0</span>
+                        </div>
+
+                        <div class="chart-area">
+                            <div class="grid-lines">
+                                <div class="grid-line"></div>
+                                <div class="grid-line"></div>
+                                <div class="grid-line"></div>
+                                <div class="grid-line"></div>
+                                <div class="grid-line"></div>
+                                <div class="grid-line"></div>
+                            </div>
+
+                            <div class="chart-bars" id="chart-bars">
+                                <div class="bar-item" title="Senin: 42%">
+                                    <div class="bar-fill" style="height: 42%;"></div>
+                                    <span class="bar-label">Senin</span>
+                                </div>
+                                <div class="bar-item" title="Selasa: 55%">
+                                    <div class="bar-fill" style="height: 55%;"></div>
+                                    <span class="bar-label">Selasa</span>
+                                </div>
+                                <div class="bar-item" title="Rabu: 30%">
+                                    <div class="bar-fill" style="height: 30%;"></div>
+                                    <span class="bar-label">Rabu</span>
+                                </div>
+                                <div class="bar-item" title="Kamis: 67%">
+                                    <div class="bar-fill" style="height: 67%;"></div>
+                                    <span class="bar-label">Kamis</span>
+                                </div>
+                                <div class="bar-item" title="Jum'at: 75%">
+                                    <div class="bar-fill" style="height: 75%;"></div>
+                                    <span class="bar-label">Jum'at</span>
+                                </div>
+                                <div class="bar-item" title="Sabtu: 98%">
+                                    <div class="bar-fill" style="height: 98%;"></div>
+                                    <span class="bar-label">Sabtu</span>
+                                </div>
+                                <div class="bar-item" title="Minggu: 86%">
+                                    <div class="bar-fill" style="height: 86%;"></div>
+                                    <span class="bar-label">Minggu</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
-    </body>
+
+        <section class="kedua">
+            <div class="container">
+                <div class="quick-info">
+                    <div class="info-box">
+                        <h2 class="info-title">Sisa Saldo</h2>
+                        <p class="info-value" id="saldo-value">Rp3.250.000</p>
+                        <p class="info-note ok" id="saldo-status">Status: Aman</p>
+                        <a href="keuangan.html" class="see-all">Lihat keuangan</a>
+                    </div>
+                    <div class="info-box">
+                        <h2 class="info-title">Pengeluaran</h2>
+                        <p class="info-value expense" id="pengeluaran-value">-Rp40.000</p>
+                        <p class="info-note" id="pengeluaran-note">5 transaksi hari ini</p>
+                        <a href="keuangan.html" class="see-all">Lihat transaksi</a>
+                    </div>
+                    <div class="info-box">
+                        <h2 class="info-title">Tugas</h2>
+                        <p class="info-value" id="tugas-count">3/4 Selesai</p>
+                        <p class="info-note">I know you can do it!</p>
+                        <a href="todolist.html" class="see-all">Lihat tugas</a>
+                    </div>
+                    <div class="info-box">
+                        <h2 class="info-title">Skor Produktivitas</h2>
+                        <p class="info-value">75%</p>
+                        <p class="info-note ok">Meningkat 10% dari kemarin</p>
+                        <a href="todolist.html" class="see-all">Lihat detail</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ketiga">
+            <div class="container">
+                <div class="main-content">
+
+                    <div class="card-large">
+                        <div class="card-body">
+                            <h2>To-Do List Hari Ini</h2>
+                            <ul class="todo-list" id="todo-list"></ul>
+                        </div>
+                        <div class="card-footer">
+                            <button type="button" class="btn-action" id="btn-tambah-tugas">+ Tambah Cepat</button>
+                            <a href="todolist.html" class="see-all">Lihat semua tugas</a>
+                        </div>
+                    </div>
+
+                    <div class="card-large">
+                        <div class="card-body">
+                            <h2>Transaksi Terakhir</h2>
+                            <ul class="transaction-list" id="transaction-list"></ul>
+                        </div>
+                        <div class="card-footer">
+                            <button type="button" class="btn-action" id="btn-catat-transaksi">+ Catat Transaksi</button>
+                            <a href="keuangan.html" class="see-all">Lihat semua transaksi</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p class="tagline">Mind 'n Margin — Atur produktivitas dan keuangan dengan mudah</p>
+            <p class="copyright">&copy; 2026 Mind 'n Margin Built with pride</p>
+        </div>
+    </footer>
+
+    <!-- Pop up: tambah tugas -->
+    <dialog id="dialog-tugas">
+        <form id="form-tugas" class="modal-form">
+            <h3>Tambah Tugas</h3>
+            <label for="input-tugas">Nama tugas</label>
+            <input type="text" id="input-tugas" name="nama" maxlength="80" required placeholder="Contoh: Kerjakan laprak" autocomplete="off">
+            <div class="modal-actions">
+                <button type="button" class="btn-cancel" data-close>Batal</button>
+                <button type="submit" class="btn-submit">Tambah</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- Pop up: catat transaksi -->
+    <dialog id="dialog-transaksi">
+        <form id="form-transaksi" class="modal-form">
+            <h3>Catat Transaksi</h3>
+            <label for="input-transaksi-nama">Keterangan</label>
+            <input type="text" id="input-transaksi-nama" name="nama" maxlength="50" required placeholder="Contoh: Beli bensin" autocomplete="off">
+            <label for="input-transaksi-jumlah">Jumlah (Rp)</label>
+            <input type="number" id="input-transaksi-jumlah" name="jumlah" min="1" step="1" required placeholder="Contoh: 20000" inputmode="numeric">
+            <div class="modal-actions">
+                <button type="button" class="btn-cancel" data-close>Batal</button>
+                <button type="submit" class="btn-submit">Simpan</button>
+            </div>
+        </form>
+    </dialog>
+
+    <script src="home.js"></script>
+</body>
 </html>
